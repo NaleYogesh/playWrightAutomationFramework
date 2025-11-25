@@ -5,8 +5,9 @@ export class popularItem {
         this.page = page;
         this.popularItem = page.locator("//a[text()='POPULAR ITEMS']");
         this.popularItemSection = page.locator("//h3[text()='POPULAR ITEMS']");
-        this.productAvailableInPopularItem = page.locator("//div[@ng-repeat='product in popularProducts']");
+        this.productInPopularItem = page.locator("//p[@class='center productName roboto-medium ng-binding']");
         this.veiwDeatilButton = page.getByText("View Details");
+        this.popularProductNameOnDetailPage=page.locator("//h1[@class='roboto-regular screen768 ng-binding']");
     }
 
     async clickOnPopularItem() {
@@ -18,18 +19,31 @@ export class popularItem {
         return this.popularItemSection;
     }
 
-    async productsAvailableInPopularItemSection() {
-        return this.productAvailableInPopularItem.elementHandles();
+    async  productsAvailableInPopularItemSection() {
+        await this.page.waitForTimeout(5000);
+      return   this.productInPopularItem.elementHandles();
+        
     }
 
-    async clickOnPopularItem() {
+   async checkProductsAvailable() {
         const availablePopularElement = await this.productsAvailableInPopularItemSection();
         if (availablePopularElement.length === 0) {
             return false;
         }
         else {
-            await this.veiwDeatilButton.click();
+            
             return true;
         }
     }
+    async getfirstPupularProductName(){
+       return (await this.productInPopularItem.first().textContent()).trim();
+    }
+
+    async clickOnViewMoreButton(){
+        await this.veiwDeatilButton.first().click();
+    }
+    async getProductNameOnDetailPage(){
+        return  (await this.popularProductNameOnDetailPage.textContent()).trim();
+    }
+        
 }

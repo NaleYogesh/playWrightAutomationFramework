@@ -27,15 +27,13 @@ test("check details of available popular product", async ({ popularItem },testIn
     await popularItem.clickOnPopularItem();
     expect(await popularItem.verifyPopularItemSection()).toBeVisible();
     const popularProductAvailable = await popularItem.checkProductsAvailable();
-    if(popularProductAvailable){
+    if(!popularProductAvailable){
         console.log("Test Skiped due to products not available");
         testInfo.skip();
 
     }
     const firstPopularProduct=await popularItem.getfirstPupularProductName();
-    console.log(firstPopularProduct);
     await popularItem.clickOnViewMoreButton();
     const productNameOnDetailPage=await popularItem.getProductNameOnDetailPage();
-     console.log(productNameOnDetailPage);
     expect(firstPopularProduct.toLowerCase()).toBe(productNameOnDetailPage.toLowerCase());
 });

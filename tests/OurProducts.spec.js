@@ -12,7 +12,7 @@ test.beforeEach("Login Test with valid credential", async ({ loginPage }) => {
 
 
 });
-/*
+
 test('get Product List', async ({ ourProducts }) => {
     await ourProducts.getAvailableProduct();
 });
@@ -84,5 +84,5 @@ test('check after select some product only that product available',async({ourPro
 
 
  })
-     */
+     
     

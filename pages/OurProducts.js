@@ -52,6 +52,7 @@ export class OurProducts {
     }
 
     async userOnSelectedProductPage() {
+        this.page.waitForTimeout(7000);
         await this.productProfile.waitFor({ state: 'visible' });
         return await this.productProfile;
     }

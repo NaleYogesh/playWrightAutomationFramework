@@ -13,16 +13,16 @@ test.beforeEach("Login Test with valid credential", async ({ loginPage }) => {
 
 
 });
-/*
-test("verify special offer flow",async({specialOffer})=>{
+
+test("verify special offer flow",{annotation:{type:'Flanky test',description:'Bug Id123'},tag:'@smoke'},async({specialOffer})=>{
 await specialOffer.clickOnSpecialOffer();
 await expect(specialOffer.verifySpecialOfferSection()).toBeVisible();
 const availableProductInSpecialOffer=await specialOffer.getSpecialOfferProductName();
 await specialOffer.clickOnSeeOfferButton();
 const productNameAfterOpenPoductDetail=await specialOffer.productNameOnOfferDeatilPages();
-await expect(availableProductInSpecialOffer.toLowerCase()).toBe(productNameAfterOpenPoductDetail.toLowerCase());
+ expect(availableProductInSpecialOffer.toLowerCase()).toBe(productNameAfterOpenPoductDetail.toLowerCase());
 
 
 });
-*/
+
 

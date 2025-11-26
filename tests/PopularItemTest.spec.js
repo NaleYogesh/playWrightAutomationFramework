@@ -13,8 +13,8 @@ test.beforeEach("Login Test with valid credential", async ({ loginPage }) => {
 
 
 });
-/*
-test("get Available Product List", async ({ popularItem }) => {
+
+test("get Available Product List", {tag:['@Regression','@smoke']},async ({ popularItem }) => {
     await popularItem.clickOnPopularItem();
     expect(await popularItem.verifyPopularItemSection()).toBeVisible();
     const getAvailablePopularProductList =await popularItem.productsAvailableInPopularItemSection();
@@ -22,8 +22,8 @@ test("get Available Product List", async ({ popularItem }) => {
         console.log((await element.textContent()).trim());
     }
 });
-*/
-test("check details of available popular product", async ({ popularItem },testInfo) => {
+
+test("check details of available popular product @Sanity ,@smoke", async ({ popularItem },testInfo) => {
     await popularItem.clickOnPopularItem();
     expect(await popularItem.verifyPopularItemSection()).toBeVisible();
     const popularProductAvailable = await popularItem.checkProductsAvailable();

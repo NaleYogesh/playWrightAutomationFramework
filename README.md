@@ -53,4 +53,47 @@ Applicable on each action
 
 aplicable induall action assertion 
 1.in test expect(locator).toBeVisible({ timeout: 10_000 })
-2.in config file 
+2.in config file ---{ expect: { timeout: 10_000 } }
+
+Actions--
+fill(),check(), locator.selectOption()--using index. value .label.text , Mouse click - click(),dblclick(),click({ button: 'right' }); ,hover();
+
+Type characters- ---press() ,.keyboard.type(" ',{delay:900})
+
+
+
+
+LOCATOR
+1.getByLabel  we can use which element tagname is <input> ,<textarea> ,
+<select> <span > a text which provided to identify
+
+
+ASSERTION
+1.toBeChecked(); -To check checkbox is checked 
+2.Use .not. to check locator result
+3.Soft Assertion - use soft  assertion -await expect(soft(actual value)).toBe(expected);
+4.provide custome msg if required -await expect(value, 'should be logged in').toBeVisible();
+
+
+UPLOAD FILE-
+1 .set file -                 import path from 'path';
+                              import { fileURLToPath } from 'url';
+                              const __filename = fileURLToPath(import.meta.url);
+                              const __dirname = path.dirname(__filename);
+                              locator().setInputFiles(path.join(__dirname,'../Utils/TestData/data.csv'));
+2.Remove Selected File-       locator()setInputFile([]);
+3.pass multiple file          locator().setInputFile([path.join(_dirName,'../MydataFile'),path.join(_dirname,'../MydataFile')])
+
+
+DRAG AND DROP
+await page.locator('').dragTo(await page.locator(" "));
+
+SCROLLING-
+1.locator().scrollIntoViewIfNeeded();
+
+CAPTURE SCREEN SHOT ON ELEMENT LEVEL
+await page.locator().screenshot({path:""})
+
+
+
+

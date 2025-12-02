@@ -94,6 +94,8 @@ SCROLLING-
 CAPTURE SCREEN SHOT ON ELEMENT LEVEL
 await page.locator().screenshot({path:""})
 
+new started point --dialogs
+
 
 
 

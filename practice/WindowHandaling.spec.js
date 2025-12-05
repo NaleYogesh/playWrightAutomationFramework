@@ -15,3 +15,4 @@ test('WindowHandaling',async({page})=>{
     openednewtab.close();
   
 });
+
